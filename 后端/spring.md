@@ -70,3 +70,81 @@
       ```         
 >附： 
 - - -
+### 异常代码：No active profile set, falling back to default profiles: default
+>翻译：
+
+>说明：
+ * 场景1： 
+    ```
+    以前debug启动的好好的，突然不行了
+    ```   
+    原因：    
+    ```
+    没找到原因。
+    附：
+        https://www.cnblogs.com/javawxid/p/10949511.html
+        https://www.cnblogs.com/jpfss/p/10765636.html
+    ```
+    解决方案：
+     ```
+     清idea缓存，用dubug启动 又失败了。
+     然后用rebel debug启动 哎成功了，在用debug启动 哎 也成功了。
+     ```
+
+>附： 
+- - -
+- - -
+### 异常代码：NoSuchBeanDefinitionException: No qualifying bean of type [com.xxx.XxxMapper] found  
+>翻译：
+    bean未找到
+>说明：
+ * 场景1： 
+    ```
+    mapper类为找到
+    ```   
+    原因：    
+    ```
+    bean未找到。
+    
+    ```
+    解决方案：
+     ```
+    注解定义在接口上，那么springIOC容器实际接管的是
+    对应接口的具体实现类，或对应接口的代理类。
+    
+    mapper被接管的就是对应接口的代理类，那么很明显mapper对应的xml有问题，导致mapper代理类生成失败。
+    xml文件要在resource下，且xml所在的包名（路径名）要和mapper类的包名一样。
+    可参考思路：
+        1.是所有的bean都没扫描到吗。
+        2.确认对应的bean所在包别的bean有注入成功吗。
+        如果是，那么bean所在的包是否扫到。
+        
+     ```
+
+>附： 
+- - -
+### 异常代码：HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl
+>翻译：
+    
+>说明：
+ * 场景1： 
+    ```
+		静默一段就没有数据库操作就报该错误
+    ```   
+    原因：    
+    ```
+		Spring Boot 数据库无法验证连接。
+		Spring Boot 2 项目,使用 Spring Data JPA 管理数据库，默认使用 HikariCP 连接池经常出现了该警告。
+		虽然程序从 HikariCP 连接池获取到了连接，但是连接不可用。可以尝试设置 maxLifetime 时间
+    ```
+    解决方案：
+     ```
+		spring.datasource.hikari.max-lifetime =0 //默认连接的存活时间无限期
+		
+		https://blog.csdn.net/darkread/article/details/89562148
+		http://www.jfinal.com/feedback/6355
+		maxLifetime：https://www.jianshu.com/p/0d72a5cac496
+     ```
+
+>附： 
+- - -

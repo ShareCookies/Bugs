@@ -20,14 +20,19 @@
          	//this指向被改变成当前函数，所以无法找到vue下的属性
          });
      ```
- * 场景2：    
-      ```
-      ```
-    原因2：    
-     ```
-     ```
+>附： 
+- - -
+### Webpack打包报"JavaScript heap out of memory"错误
+>说明：
+ * 场景1： 
+    ```
+    ```   
+    原因1：    
+    ```      
+    ```
     解决方案：
-      ```
-      ```   
+     ```
+         https://www.cnblogs.com/jianxuanbing/p/9331042.html
+     ```
 >附： 
 - - -
