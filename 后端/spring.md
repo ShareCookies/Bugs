@@ -123,27 +123,28 @@
 
 >附： 
 - - -
-### 异常代码：HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl
+### 异常代码：HikariPool-1 - Failed to validate connection ... Possibly consider using a shorter maxLifetime value.HikariPool-1 - Connection is not available, request timed out after *ms.
 >翻译：
-    
+    连接验证失败，考虑使用一个更短的maxLifetime。连接无效，请求将在.ms后超时
 >说明：
  * 场景1： 
     ```
-		静默一段就没有数据库操作就报该错误
+		静默一段时间没有数据库操作就报该错误
     ```   
     原因：    
     ```
-		Spring Boot 数据库无法验证连接。
 		Spring Boot 2 项目,使用 Spring Data JPA 管理数据库，默认使用 HikariCP 连接池经常出现了该警告。
-		虽然程序从 HikariCP 连接池获取到了连接，但是连接不可用。可以尝试设置 maxLifetime 时间
+		虽然程序从 HikariCP 连接池获取到了连接，但是连接不可用。
     ```
     解决方案：
      ```
-		spring.datasource.hikari.max-lifetime =0 //默认连接的存活时间无限期
-		
-		https://blog.csdn.net/darkread/article/details/89562148
-		http://www.jfinal.com/feedback/6355
-		maxLifetime：https://www.jianshu.com/p/0d72a5cac496
+		spring.datasource.hikari.connectionTimeout=60000
+		spring.datasource.hikari.idleTimeout=60000
+		# validationTimeout用于多久验证一次数据库连接池的连接是否有效（是否为null）的时间 (默认是5秒，最小不能小于250毫秒) https://segmentfault.com/a/1190000013081060
+		spring.datasource.hikari.validationTimeout=3000
+		spring.datasource.hikari.loginTimeout=5
+		spring.datasource.hikari.maxLifetime=60000
+		https://www.cnblogs.com/zhaojinxin/p/7753873.html
      ```
 
 >附： 
