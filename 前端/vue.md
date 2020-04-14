@@ -36,3 +36,22 @@
      ```
 >附： 
 - - -
+### Computed property "XXX" was assigned to but it has no setter
+>说明：
+ * 场景1： 
+    ```
+		
+    ```   
+    原因1：    
+    ```	
+        v-model是vue中的双向绑定，但是在computed中只通过get获取参数值，没有set无法改变参数值
+    ```
+    解决方案：
+     ```
+        https://segmentfault.com/a/1190000018127192?utm_source=tag-newest
+        1.在computed中添加get和set
+        
+        2.将v-model改成:value
+     ```
+>附： 
+- - -
