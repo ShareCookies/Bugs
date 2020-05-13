@@ -35,7 +35,7 @@
          nodeJs打包时内存溢出
          打开一个cmd窗口
          运行setx NODE_OPTIONS --max_old_space_size=4096
-         重启
+         重启电脑
          附:
          node --max-nex-space-size=1024   // 单位为KB
          node --max-old-space-size=2000  // 单位为MB
