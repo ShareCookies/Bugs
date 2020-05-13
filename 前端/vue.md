@@ -32,7 +32,16 @@
     ```
     解决方案：
      ```
+         nodeJs打包时内存溢出
+         打开一个cmd窗口
+         运行setx NODE_OPTIONS --max_old_space_size=4096
+         重启
+         附:
+         node --max-nex-space-size=1024   // 单位为KB
+         node --max-old-space-size=2000  // 单位为MB
+         可以通过任务管理器，看node.js内存达到你设置的值后，会不会崩，就能确定是否生效了
          https://www.cnblogs.com/jianxuanbing/p/9331042.html
+         https://blog.csdn.net/genius_yym/article/details/80854729?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase
      ```
 >附： 
 - - -
