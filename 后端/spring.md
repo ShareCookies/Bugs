@@ -149,3 +149,70 @@
 
 >附： 
 - - -
+- - -
+### 异常代码：... bean of type XXXX that could not be found
+>翻译：
+    
+>说明：
+ * 场景1： 
+    ```
+		
+    ```   
+    原因：    
+    ```
+		spring容器中没有该bean，
+    ```
+    解决方案：
+     ```
+        1.案例：mapper相关bean无法找到
+            https://blog.csdn.net/weixin_42081297/article/details/80424410
+            @MapperScan({"com.rongji.egov.doc.business.*.mapper"}) 未指定到正确的mapper.xml文件目录，导致无法成功自动创建mapper接口的实例类
+     ```
+
+>附： 
+- - -
+- - -
+### 异常代码：SpringBoot启动时报org.springframework.context.annotation.ConflictingBeanDefinitionException
+>翻译：
+    
+>说明：
+ * 场景1： 
+    ```
+		
+    ```   
+    原因：    
+    ```
+		因为bean对象的名称重复导致了该异常
+    ```
+    解决方案：
+     ```
+       1;定义bean对象时指定其名称就行。
+       2;修改类的名称
+     ```
+
+>附： 
+- - -
+- - -
+### 异常代码：ERROR org.springframework.boot.SpringApplication - Application run failed java.lang.IllegalArgumentException: Invalid profile []: must contain text
+>翻译：
+    
+>说明：
+ * 场景1： 
+    ```
+		
+    ```   
+    原因：    
+    ```
+        配置文件加载异常,profile加载失败
+    ```
+    解决方案：
+     ```
+       1.案例：配置文件写的有错
+        spring:
+          profiles:
+            include: business,
+        去掉逗号即可
+     ```
+
+>附： 
+- - -
