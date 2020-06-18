@@ -1,0 +1,22 @@
+功能的剖析：
+	1.知道如何使用这个功能.
+		知道一个功能的初步用法。
+	2.功能的实现：
+		追踪代码的走向，并分析各块代码的作用/功能。
+		例：
+			https://www.jianshu.com/p/922963106729
+		注：
+			//还是通过研究代码来的好。可通过debug的frames与文档结合，来寻找功能的入口点。
+			//例：https://www.cnblogs.com/demingblog/p/10874753.html goto：FilterChainProxy 和SecurityFilterChain
+	3.设计思想：
+		画类图理清各个类,接口的关系。
+		附：
+			idea选中类，右键diagram 可查看该类的继承（包括实现）关系图。
+			注：
+				show categories 显示属性方式等
+				show dependencies 查看依赖关系 
+				layout 切换显示的布局方式
+		例：
+			https://blog.csdn.net/my_learning_road/article/details/79833802
+
+				
