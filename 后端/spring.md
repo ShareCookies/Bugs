@@ -216,3 +216,46 @@
 
 >附： 
 - - -
+- - -
+### 异常代码：org.springframework.transaction.UnexpectedRollbackException: Transaction rolled back because it has been marked as rollback-only
+>翻译：
+    出现了不可预知的回滚异常，因为事务已经被标志位只能回滚，所以事务回滚了
+>说明：
+ * 场景1： 
+    ```
+		发生异常的场景描述：
+			在使用Spring事务时，
+			在一个事务A中又开了一个事务B（即存在嵌套事务），当事务B发生异常时，将异常catch后事务B会进行回滚操作，
+			若此时异常被直接吃掉（即事务A无法得知发生过异常），
+			则事务A会抛出如上异常。
+			
+			hcg
+				就是事物b中发生异常，事物b抛出异常并回滚，a事物的方法中收到异常，但a方法没抛出，此时a事物就感觉不到，就会继续操作数据库，（但由于spirng的事物传递性 ab其实是共享同一个事务的，此时事物是被b标为回滚状态的），继续操作就报该异常了。
+    ```   
+    原因：    
+    ```
+        配置文件加载异常,profile加载失败
+    ```
+    解决方案：
+     ```
+		https://blog.csdn.net/qq_30336433/article/details/83111675
+
+		情况1：
+			methodA与methodB在逻辑上不应该属于同一个事务，
+			那么将methodB的事务传播属性修改为PROPAGATION_REQUIRES_NEW，这样，执行methodB时，会创建一个新的事务，不影响methodA中的事务。
+
+		情况2：
+			业务A与业务B在业务逻辑上就应该属于同一个事务，那么将methodA中的try catch去掉
+
+		情况3：？
+			业务A与业务B在业务逻辑上就应该属于同一个事务，
+			但是methodB的失败与否不能影响methodA的事务提交，那么仍然在methodA中try catch methodB,并将methodB设置为PROPAGATION_NESTED，
+			它的意思是，methodB是一个子事务，有一个savepoint，失败时会回滚到savepoint，不影响methodA，如果成功则A、B一起提交，A与B都是一个事务，只是B是一个子事务。
+		情况4：
+			业务A 有无事务无影响 去掉业务A的@Transactional
+		附：
+			https://www.cnblogs.com/wangzhongqiu/p/7241058.html
+     ```
+
+>附： 
+- - -
