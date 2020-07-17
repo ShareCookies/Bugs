@@ -61,6 +61,16 @@
         1.在computed中添加get和set
         
         2.将v-model改成:value
+		例：
+			computed:{
+			  test:{
+				get:function () {
+				  return this.$store.state.activeName
+				},
+				set:function () {
+				}
+			  }
+			}
      ```
 >附： 
 - - -
