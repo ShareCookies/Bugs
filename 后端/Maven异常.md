@@ -1,11 +1,12 @@
-### 异常代码：Failed to deploy ...with status code 401
+### 1. 异常代码：Failed to deploy ...with status code 401
 >翻译：
 
 >说明：
 
  * 场景1： 
     ```
-    ```   
+    
+    ```
     原因：    
     ```
         这是权限不够，无法发布包到私服。
@@ -33,14 +34,15 @@
      ```
 >附： 
 - - -
-### 异常代码：Failed to execute goal org.apache.maven.plugins:maven-install-plugin:2.4:install (default-cli) on project core:  The packaging for this project did not assign a file to the build artifact -> [Help 1]
+### 2. 异常代码：Failed to execute goal org.apache.maven.plugins:maven-install-plugin:2.4:install (default-cli) on project core:  The packaging for this project did not assign a file to the build artifact -> [Help 1]
 >翻译：
 
 >说明：
 
  * 场景1： 
     ```
-    ```   
+    
+    ```
     原因：    
     ```
         
@@ -54,14 +56,15 @@
 >附： 
 - - -
 - - -
-### maven添加插件不成功
+### 3. maven添加插件不成功
 >翻译：
 
 >说明：
 
  * 场景1： 
     ```
-    ```   
+    
+    ```
     原因：    
     ```
         
@@ -73,7 +76,7 @@
 >附： 
 - - -
 - - -
-### maven依赖书写正确，但实际实际引入的却是另一个依赖
+### 4. maven依赖书写正确，但实际实际引入的却是另一个依赖
 >翻译：
 
 >说明：
@@ -92,7 +95,7 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 		
-    ```   
+    ```
     原因：    
     ```
         因为一个request的依赖已经在其依赖包中引入了zdj，导致当前项目引入的zjj无法生效。
@@ -107,16 +110,16 @@
 >附： 
 - - -
 - - -
-### Failed to execute goal on project zjgy-oa-hsf: Could not resolve dependencies for project com.rongji.egov:zjgy-oa-hsf:jar:0.0.1-SNAPSHOT: The following artifacts could not be resolved: com.alibaba.middleware:sdk:jar:999-not-exist-SNAPSHOT, com.taobao.pandora:taobao-hsf.sar:jar:dev-SNAPSHOT: Failure to find com.alibaba.middleware:sdk:jar:999-not-exist-SNAPSHOT in http://ip:端口/repository/public/ was cached in the local repository, resolution will not be reattempted until the update interval of 154-nexus has elapsed or updates are forced -> [Help 1]
+### 5. Failure to find com.alibaba.middleware:sdk:jar:999-not-exist-SNAPSHOT in http://ip:端口/repository/public/ was cached in the local repository, resolution will not be reattempted until the update interval of 154-nexus has elapsed or updates are forced
 >翻译：
 
 >说明：
 
  * 场景1： 
     ```
-		使用clean package打包失败
+		使用clean package打包失败,报了改异常
 		
-    ```   
+    ```
     原因：    
     ```
         
@@ -142,4 +145,30 @@
 			https://blog.csdn.net/u013066244/article/details/91986308
      ```
 >附： 
+
 - - -
+- - -
+### 6. Compilation failure:找不到符号
+>翻译：
+
+>说明：
+
+ * 场景1： 
+    ```
+		使用clean package打包失败,报了改异常.
+    ```
+    原因：    
+    ```
+        类方法或属性等缺失。
+		但idea中确实有看到对应类下方法存在。
+		注意下idea -》setting-》maven中是否指定了配置文件和仓库地址。
+		这个指定时只对idea生效的，对maven是无效的，maven只认安装目录/conf/setting.xml 配置文件和配置文件中的仓库地址。
+    ```
+    解决方案：
+     ```		
+		maven安装目录/conf/setting.xml中指定仓库地址。
+     ```
+>附： 
+
+- - -
+
