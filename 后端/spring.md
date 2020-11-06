@@ -9,7 +9,7 @@
         exception: "org.springframework.web.bind.MissingServletRequestParameterException"
         message: "Required String parameter 'docId这是方法参数' is not present"
         path: "请求连接"	
-    ```   
+    ```
     原因1：    
     ```
         请求缺失参数
@@ -20,13 +20,16 @@
      ```
  * 场景2：    
       ```
-      ```
+      
+    ```
     原因2：    
      ```
+    
      ```
     解决方案：
       ```
-      ```   
+    
+      ```
 >附： 
 - - -
 ###  java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty
@@ -36,7 +39,7 @@
  * 场景1： 
     ```
         https://blog.csdn.net/qq_33382113/article/details/78643373
-    ```   
+    ```
     原因1：    
     ```
         
@@ -51,23 +54,26 @@
       ```
     原因：    
      ```
+    
      ```
     解决方案：
       ```
-      ```   
+    
+      ```
  * 场景3：    
       ```
       用RestTemplete发起了https请求，报了这个异常。
       ```
     原因：    
      ```
+    
      ```
     解决方案：
       ```
       使Spring RestTemplete支持Https安全请求：
       https://blog.csdn.net/weixin_33835103/article/details/86278376
       https://blog.csdn.net/justry_deng/article/details/82531306#commentBox
-      ```         
+      ```
 >附： 
 - - -
 ### 异常代码：No active profile set, falling back to default profiles: default
@@ -77,7 +83,7 @@
  * 场景1： 
     ```
     以前debug启动的好好的，突然不行了
-    ```   
+    ```
     原因：    
     ```
     没找到原因。
@@ -101,7 +107,7 @@
  * 场景1： 
     ```
     mapper类为找到
-    ```   
+    ```
     原因：    
     ```
     bean未找到。
@@ -130,7 +136,7 @@
  * 场景1： 
     ```
 		静默一段时间没有数据库操作就报该错误
-    ```   
+    ```
     原因：    
     ```
 		Spring Boot 2 项目,使用 Spring Data JPA 管理数据库，默认使用 HikariCP 连接池经常出现了该警告。
@@ -152,12 +158,12 @@
 - - -
 ### 异常代码：... bean of type XXXX that could not be found
 >翻译：
-    
+
 >说明：
  * 场景1： 
     ```
 		
-    ```   
+    ```
     原因：    
     ```
 		spring容器中没有该bean，
@@ -174,12 +180,12 @@
 - - -
 ### 异常代码：SpringBoot启动时报org.springframework.context.annotation.ConflictingBeanDefinitionException
 >翻译：
-    
+
 >说明：
  * 场景1： 
     ```
 		
-    ```   
+    ```
     原因：    
     ```
 		因为bean对象的名称重复导致了该异常
@@ -195,12 +201,12 @@
 - - -
 ### 异常代码：ERROR org.springframework.boot.SpringApplication - Application run failed java.lang.IllegalArgumentException: Invalid profile []: must contain text
 >翻译：
-    
+
 >说明：
  * 场景1： 
     ```
 		
-    ```   
+    ```
     原因：    
     ```
         配置文件加载异常,profile加载失败
@@ -231,7 +237,7 @@
 			
 			hcg
 				就是事物b中发生异常，事物b抛出异常并回滚，a事物的方法中收到异常，但a方法没抛出，此时a事物就感觉不到，就会继续操作数据库，（但由于spirng的事物传递性 ab其实是共享同一个事务的，此时事物是被b标为回滚状态的），继续操作就报该异常了。
-    ```   
+    ```
     原因：    
     ```
         配置文件加载异常,profile加载失败
@@ -258,4 +264,30 @@
      ```
 
 >附： 
+
+- - -
+- - - -
+### 异常代码：springboot的tomcat启动过慢
+>翻译：
+说明：
+ * 场景1： 
+    ```
+	
+	```
+	原因：    
+	```
+	
+	```
+	解决方案：
+	 ```
+    1.断点去掉，debug模式启动速度加快了。
+    附：
+    https://www.jianshu.com/p/30aa8e43a396
+    jstack(查看线程)、jmap(查看内存)和jstat(性能分析)...
+    
+    	
+     ```
+
+>附： 
+
 - - -
