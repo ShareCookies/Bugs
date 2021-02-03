@@ -3,7 +3,7 @@
  * 场景1： 
     ```
        vue框架，浏览器的console中报了这个错误。
-    ```   
+    ```
     原因1：    
     ```
        变量无法找到。
@@ -26,9 +26,11 @@
 >说明：
  * 场景1： 
     ```
-    ```   
+    
+    ```
     原因1：    
     ```      
+    
     ```
     解决方案：
      ```
@@ -50,7 +52,7 @@
  * 场景1： 
     ```
 		
-    ```   
+    ```
     原因1：    
     ```	
         v-model是vue中的双向绑定，但是在computed中只通过get获取参数值，没有set无法改变参数值
@@ -73,4 +75,51 @@
 			}
      ```
 >附： 
+
+- - -
+- - -
+### Webpack打包缓存问题
+
+>说明：
+ * 场景1： 
+    ```
+		各种问题，清了缓存就行
+    ```
+    原因1：    
+    ```	
+    	
+    ```
+    解决方案：
+     ```
+       修改build里webpack.prod.conf.js文件中的output为output: {
+    path: config.build.assetsRoot,
+    filename: utils.assetsPath(‘js/[name].[hash].js’),
+    chunkFilename: utils.assetsPath(‘js/[id].[hash].js’)
+	}
+	附：
+	https://www.cnblogs.com/heyushuo/p/8543889.html
+	https://blog.csdn.net/sinat_17775997/article/details/61924901
+	https://blog.csdn.net/qq_37337830/article/details/81507246?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
+	 ```
+>附： 
+>
+>ng指明清理缓存：
+>
+>        server {
+>            listen       6050;
+>            server_name  localhost;
+>    
+>            location / {
+>                error_page 405 =200 /index.html;
+>                root   /data/work/frontend/ex2;
+>                index  index.html index.htm;
+>                if ($request_filename ~* .*\.(?:htm|html)$)
+>                {
+>                    add_header Cache-Control "private, no-store, no-cache, must-revalidate, proxy-revalidate";
+>                }
+>    
+>            }
+>            ...
+>        }
+
 - - -
