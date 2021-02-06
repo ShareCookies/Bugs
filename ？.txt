@@ -1,0 +1,13 @@
+vue 父组件不能给子组件强制赋值？？？
+	this.$refs.组件.属性 = 1;
+	this.$refs.组件.方法();
+		resetTemporaryId(_this){
+			if (_this.form.temporaryId && !_this.form.id) {
+				_this.docId = _this.form.temporaryId;
+				_this.t = 111111;
+			}
+		},
+	我好像有进行过直接赋值的操作，难道是版本变了，禁止了这种操作。
+	查看Vue版本：
+		1.npm list vue
+		2.进入项目中package.json文件直接查看
