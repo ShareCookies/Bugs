@@ -117,9 +117,28 @@
 >                {
 >                    add_header Cache-Control "private, no-store, no-cache, must-revalidate, proxy-revalidate";
 >                }
->    
+>            
 >            }
 >            ...
 >        }
+
+- - -
+- - -
+### element输入框等组件无法进行输入
+>说明：
+ * 场景1： 
+    ```
+		
+    ```
+    原因1：    
+    ```	
+        prop接收的对象(例form{}),并v-model到el-input上。
+        然后对象引用变了，form指向别的，那么此时el-input就无法输入了。
+    ```
+    解决方案：
+     ```
+       
+     ```
+>附： 
 
 - - -
