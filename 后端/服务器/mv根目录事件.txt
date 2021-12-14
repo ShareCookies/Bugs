@@ -1,0 +1,67 @@
+mv /* /某目录了：
+	https://blog.csdn.net/qq_40460909/article/details/81004624?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.control&dist_request_id=1331647.291.16183177170173271&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.control
+	https://blog.csdn.net/xiaohuixing16134/article/details/86065617?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-0&spm=1001.2101.3001.4242
+	https://blog.csdn.net/guancong3412/article/details/88310537
+
+查看系统发行版信息
+	https://www.linuxprobe.com/linux-cat-system.html
+	输入"cat /etc/issue", 显示的是发行版本信息
+
+
+
+ln -sv /root/test /test2
+创建指向/root/test的符号链接/test2
+	附：/test2，不需要提前创建。
+
+export：
+	https://www.cnblogs.com/tinywan/p/7224011.html
+	附：export方式在重启后失效，所以也可以用 vim /etc/bashrc ，修改其中的LD_LIBRARY_PATH变量。
+	
+	
+	PATH="/opt/rabbitmq_server-3.8.6/sbin:/opt/solrcloud:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+	PATH="/opt/rabbitmq_server-3.8.6/sbin:/opt/solrcloud:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin"
+	
+LD_LIBRARY_PATH：
+	https://baike.baidu.com/item/LD_LIBRARY_PATH/9391538?fr=aladdin
+	LD_LIBRARY_PATH是Linux环境变量名，
+	该环境变量主要用于指定查找共享库（动态链接库）时除了默认路径之外的其他路径。
+	
+	export LD_LIBRARY_PATH="/usr/bin:/usr/lib"
+	export LIBRARY_PATH="/usr/bin:/usr/lib"
+	echo $LD_LIBRARY_PATH
+	LIBRARY_PATH 和 LD_LIBRARY_PATH ：
+		StackOverflow 上关于 LIBRARY_PATH 和 LD_LIBRARY_PATH 的解释如下：
+		LIBRARY_PATH
+			is used by gcc before compilation to search for directories containing libraries that need to be linked to your program.
+		LD_LIBRARY_PATH
+			is used by your program to search for directories containing the libraries after it has been successfully compiled and linked.
+为什么修改LD_LIBRARY_PATH呢
+	因为运行时动态库的搜索路径的先后顺序是：
+	1.编译目标代码时指定的动态库搜索路径；
+	2.环境变量LD_LIBRARY_PATH指定的动态库搜索路径；
+	3.配置文件/etc/ld.so.conf中指定的动态库搜索路径；
+	4.默认的动态库搜索路径/lib和/usr/lib；
+
+	这个顺序是compile gcc时写在程序内的，通常软件源代码自带的动态库不会太多，而我们的/lib和/usr/lib只有root权限才可以修改，而且配置文件/etc/ld.so.conf也是root的事情，我们只好对LD_LIBRARY_PATH进行操作啦。
+
+动态连接器
+	find / -name ld-linux.so.*
+	
+	
+注册命令到全局：
+	通过软连接的方式，将命令链接到/usr/bin/目录下
+	sudo ln -s /home/alexander/snap/redis-6.0.6/src/redis-server /usr/bin/redis-server
+系统内置命令：
+	https://blog.csdn.net/zhongmushu/article/details/103239949
+	umask：
+		https://www.cnblogs.com/sench/p/8933638.html
+		如果想知道当前的umask 值，可以使用umask命令：
+			$umask
+	   	如果想要改变umask值，只要使用umask命令设置一个新的值即可：
+			$ umask 002
+	注：
+		help 显示所有系统内置命令
+centos 系统 chmod权限丢失如何恢复：
+	https://blog.csdn.net/timonium/article/details/115300761
+	使用setfacl 和 getfacl 来进行为chmod赋值。
+	https://www.cnblogs.com/lbg-database/p/10109973.html
