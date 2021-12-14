@@ -18,3 +18,34 @@
 
     ​	类找不到异常通常就是依赖被低版本依赖覆盖导致的。
 - - -
+
+### java.lang.IllegalArgumentException: Comparison method violates its general contract!  
+
+>说明：比较方法违法通用规范
+ * 场景1： 
+    ```
+       
+    ```
+    原因1：    
+    ```
+       集合的compare方法出现异常，要符合规范的实现compare方法，即考虑比较对象为为null情况。
+       https://www.cnblogs.com/firstdream/p/7204067.html
+    ```
+    解决方案：
+     ```
+        if(o1 == null && o2 == null) {  
+        	return 0;  
+        }  
+        if(o1 == null) {  
+            return -1;  
+        }  
+        if(o2 == null) {  
+            return 1;  
+        }  
+        也考虑下比较值
+     ```
+    
+ * 附： 
+
+    
+
