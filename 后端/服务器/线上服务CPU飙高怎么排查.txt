@@ -1,0 +1,19 @@
+https://blog.csdn.net/zzti_erlie/article/details/85602307?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EOPENSEARCH%7Edefault-1.essearch_pc_relevant&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EOPENSEARCH%7Edefault-1.essearch_pc_relevant
+
+1. 先执行top，找到CPU占用比较高的进程
+2. 导出java进程明细到文件中 
+	jstack 进程id > show.txt
+3. top命令找到进程中CPU占用比较高的线程pid
+例：
+	top -p 23757 -H
+
+附：
+	参数选项名称	含义
+	p	
+		通过指定进程ID（PID）来仅仅监控某个进程的状态。可以指定多个，-pN1 -pN2 … （-p N1 -p N2…也可）或者 -pN1,N2,N3 …（-p N1,N2…也可）
+	H	
+		显示所有线程的运行状态指标。如果没有该参数，会显示一个进程中所有线程的总和。在运行过程中，可以通过H命令进行交互控制
+4. 线程id转为16进制，到show.txt文件中根据线程id查看线程的具体状态即可
+
+模拟案例：
+	...
