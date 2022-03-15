@@ -43,3 +43,32 @@
 >附： 
 
 - - -
+
+# git 变基报错git-am is in progress
+
+>翻译：
+
+>说明：
+
+ * 场景1： 
+    ```
+    
+    ```
+    原因：    
+    ```
+    
+    ```
+    解决方案：
+     ```
+     https://blog.csdn.net/zhenyu5211314/article/details/78357139
+        报错信息：
+        It looks like git-am is in progress. Cannot rebase.
+    
+        解决办法：
+        命令行执行 rm -rf .git/rebase-apply
+        删除项目.git/rebase-apply 文件夹，.git文件夹默认为隐藏
+     ```
+>附： 
+
+- - -
+
