@@ -76,3 +76,27 @@
     
     ​	反序列化测试：https://blog.csdn.net/b1480521874/article/details/88841560?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.opensearchhbase&spm=1001.2101.3001.4242.1
 - - -
+
+- - -
+### 4.  ？ NoClassDefFoundError
+>翻译：类未找到
+
+>说明：
+
+ * 场景1： 
+    ```
+	maven分模块有依赖，但依赖了该模块的总模块引入不成功(不会自动引入分模块依赖)，为什么了？
+    需要一个一个引入，才不会报类未找到.
+    ？是因为这是第三方的包导致的不会自动引入吗，那如何判断第三方了，包名前缀是否相同吗
+    ```
+    原因：    
+	```
+			
+	```
+    解决方案：
+     ```		
+    思路：1. 包未引入 2. 包版本不对 3. 包版本冲突 4...
+     ```
+>附： 
+
+- - -
