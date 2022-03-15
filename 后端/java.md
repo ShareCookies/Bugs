@@ -100,3 +100,50 @@
 >附： 
 
 - - -
+
+- - -
+
+### 5. 异常代码：文件流返回数据为空或长时间等待
+
+>翻译：
+
+>说明：
+
+ * 场景1： 
+
+   ```
+   二进制传输响应流(文件流),请求头加上content-length，导致返回数据为空或长时间等待
+   ```
+
+   原因：    
+
+   ```
+   估计http的content-length与实际不一致导致了浏览器拒绝或一直等待文件的情况
+   ```
+
+   解决方案：
+
+    ```
+    	方式1. 正确设置content-length
+    	方式2. 不要设置content-length，让其默认为-1
+    ```
+
+>附：
+>
+>Content-Length 作用：！！！
+>
+>https://blog.csdn.net/yy4545/article/details/107787463
+>
+>https://blog.csdn.net/stpeace/article/details/80217315?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-1&spm=1001.2101.3001.4242
+>
+>`http`的协议中`Content-Length`首部告诉浏览器报文中实体主体的大小。
+>
+>这个大小是包含了内容编码的：
+>
+>	比如对文件进行了`gzip`压缩，`Content-Length`就是压缩后的大小。
+>
+>除非使用了分块编码，否则`Content-Length`首部就是带有实体主体的报文必须使用的。
+>
+>使用`Content-Length`首部是为了能够检测出服务器崩溃而导致的报文截尾，并对共享持久连接的多个报文进行正确分段.
+
+- - -
