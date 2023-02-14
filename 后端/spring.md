@@ -291,3 +291,25 @@
 >附： 
 
 - - -
+- - - -
+### 异常代码：org.springframework.aop.AopInvocationException: Null return value from advice does not match
+>翻译：
+说明：
+ * 场景1： 
+    ```
+	@Async
+	public void t(){}
+	调用异步方法报错
+	```
+	原因：    
+	```
+	？
+	```
+    解决方案：
+     ```
+    ？
+     ```
+
+>附： 
+
+- - -
