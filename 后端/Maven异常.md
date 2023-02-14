@@ -98,15 +98,14 @@
     ```
     原因：    
     ```
-        因为一个request的依赖已经在其依赖包中引入了zdj，导致当前项目引入的zjj无法生效。
+        最短路径原则：因为一个request的依赖已经在其依赖包中引入了zdj，导致当前项目引入的zjj无法生效。
     ```
     解决方案：
      ```
-     	屏蔽request。
-		
-		解决方案2：
-			https://blog.csdn.net/Petershusheng/article/details/87885887?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
-     ```
+    解决方案1：屏蔽request。
+	解决方案2：exclusion排除依赖用法
+	https://wutongshenyuan.blog.csdn.net/article/details/120007367?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_antiscanv2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_antiscanv2&utm_relevant_index=2
+	 ```
 >附： 
 - - -
 - - -
@@ -193,6 +192,28 @@
 	方式4. 私服有，但就是拉不成功。看下setting-》maven的work offline是否被勾选起来了。
 	勾选起来则不会去拉包。
 	 ```
+>附： 
+
+- - -
+- - -
+### 8.  UnsupportedClassVersionError: RepackageMojo has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+>翻译：
+
+>说明：
+
+ * 场景1： 
+    ```
+	
+    ```
+    原因：    
+    ```
+    spring-boot-maven-plugin缺少版本号带来的打包失败问题，没有指定它的version，每次maven都会获取spring-boot-maven-plugin插件最新的版本
+	```
+	解决方案：
+	 ```		
+    pom中maven打包插件加上版本号
+    https://www.jianshu.com/p/878a8b62e70f
+     ```
 >附： 
 
 - - -
