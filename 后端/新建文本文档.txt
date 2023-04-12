@@ -1,0 +1,5 @@
+什么情况下会产生Connection reset？
+	https://blog.csdn.net/qq_44866828/article/details/126590435
+	
+java: 常量字符串过长 报错的解决方法及原因	
+	https://blog.csdn.net/weixin_43957537/article/details/127141232

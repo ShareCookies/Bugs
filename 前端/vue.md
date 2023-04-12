@@ -142,3 +142,24 @@
 >附： 
 
 - - -
+
+- - -
+### Mixed spaces and tabs no-mixed-spaces-and-tabs
+>说明：
+ * 场景1： 
+    ```
+	
+    ```
+    原因1：    
+    ```	
+    
+    ```
+    解决方案：
+     ```
+    .eslintrc.js 编辑
+    	// error; 禁止混用空格和缩进
+    	'no-mixed-spaces-and-tabs': 0,	
+     ```
+>附： 
+
+- - -
