@@ -45,7 +45,7 @@
          https://www.cnblogs.com/jianxuanbing/p/9331042.html
          https://blog.csdn.net/genius_yym/article/details/80854729?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase
      ```
->附： 
+>附： 版本不一样可能不生效 14.17.1
 - - -
 ### Computed property "XXX" was assigned to but it has no setter
 >说明：
